@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 id="welcomeMessage"></h1>
+        click here:
+        <a href="profile.html">show profile</a>
+    </div>
+    <script>
+        // Retrieve username from local storage
+        const username = localStorage.getItem('username');
+        // Update welcome message with username if available
+        if (username) {
+            document.getElementById('welcomeMessage').innerText = `Welcome, ${username}!`;
+        }
+    </script>
+</section>
+
+</body>
+</html>

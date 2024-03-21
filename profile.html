@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="./css/profile.css">
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+    <div class="profileContainer">
+        <!-- <div class="profilePicture">
+            <img src="profile.jpg" alt="Profile Picture">
+        </div> -->
+        <div class="profileDetails">
+            <button id="settingsButton" onclick="openSettings()">First Time Logging in?</button>
+            <h2 id="name">Name :</h2>
+            <p id="bio">Bio :</p>
+            <p id="contactInfo">Phone :<br>Email :</p>
+            <p id="personalDetails">DOB :<br>Address : </p>
+            <p id="interests">Interests : </p>
+            <p id="education">Education : </p>
+            <p id="skills">Skills : </p>
+            <p id="experiences">Experiences : </p>
+            <p id="projects">Projects : </p>
+        </div>
+    </div>
+    <div class="updateProfileContainer">
+        <button id="editProfileButton" onclick="showUpdateForm()">Edit Profile</button>
+        <div id="updateForm" style="display:none;">
+            <h3>Update Profile</h3>
+            <form id="profileUpdateForm">
+                <label for="updateName">Name:</label>
+                <input type="text" id="updateName" name="updateName"><br>
+
+                <label for="updateBio">Bio:</label>
+                <textarea id="updateBio" name="updateBio" rows="4" cols="50"></textarea><br>
+
+                <label for="updatePhone">Phone:</label>
+                <input type="tel" id="updatePhone" name="updatePhone"><br>
+
+                <label for="updateEmail">Email:</label>
+                <input type="email" id="updateEmail" name="updateEmail"><br>
+
+                <label for="updateDob">DOB:</label>
+                <input type="date" id="updateDob" name="updateDob"><br>
+
+                <label for="updateAddress">Address:</label>
+                <textarea id="updateAddress" name="updateAddress" rows="4" cols="50"></textarea><br>
+
+                <label for="updateInterests">Interests:</label>
+                <input type="text" id="updateInterests" name="updateInterests"><br>
+
+                <label for="updateEducation">Education:</label>
+                <input type="text" id="updateEducation" name="updateEducation"><br>
+
+                <label for="updateSkills">Skills:</label>
+                <input type="text" id="updateSkills" name="updateSkills"><br>
+
+                <label for="updateExperiences">Experiences:</label>
+                <textarea id="updateExperiences" name="updateExperiences" rows="4" cols="50"></textarea><br>
+
+                <label for="updateProjects">Projects:</label>
+                <textarea id="updateProjects" name="updateProjects" rows="4" cols="50"></textarea><br>
+
+                <button type="button" onclick="submitUpdate()">Update Profile</button>
+            </form>
+        </div>
+    </div>
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- Include your profile form here -->
+            <form id="profileForm">
+                <!-- Your profile form elements here -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" ><br>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4" cols="50" ></textarea><br>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br>
+
+                <label for="dob">DOB:</label>
+                <input type="date" id="dob" name="dob"><br>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" cols="50"></textarea><br>
+
+                <label for="interests">Interests:</label>
+                <input type="text" id="interests" name="interests"><br>
+
+                <label for="education">Education:</label>
+                <input type="text" id="education" name="education"><br>
+
+                <label for="skills">Skills:</label>
+                <input type="text" id="skills" name="skills"><br>
+
+                <label for="experiences">Experiences:</label>
+                <textarea id="experiences" name="experiences" rows="4" cols="50"></textarea><br>
+
+                <label for="projects">Projects:</label>
+                <textarea id="projects" name="projects" rows="4" cols="50"></textarea><br>
+
+                <button type="submit" >Save</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/profile.js"></script>
+</body>
+</html>
