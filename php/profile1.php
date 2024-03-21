@@ -3,14 +3,13 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Credentials: true');
 
 require '../assets/vendor/autoload.php';
-// t7IMfRT4UpOHpVKd
 use MongoDB\Client;
 use Predis\Client as RedisClient;
 
 // Connect to MongoDB
 // mongodb+srv://<username>:<password>@cluster0.2s94ek1.mongodb.net/?retryWrites=true&w=majority
-// $client = new Client("mongodb://localhost:27017");
-$client = new Client("mongodb+srv://Dhanush:NqqgN1WYSJrqr0e2@cluster0.2s94ek1.mongodb.net/");
+$client = new Client("mongodb://localhost:27017");
+$client = new Client("");
 $collection = $client->user-login-data->profiles;
 
 // Connect to Redis server
