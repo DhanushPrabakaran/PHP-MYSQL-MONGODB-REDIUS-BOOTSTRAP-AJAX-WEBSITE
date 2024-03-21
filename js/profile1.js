@@ -45,7 +45,9 @@ function openSettings() {
             // Handle success response here
             console.log('Data sent successfully');
             console.log(response); // You can optionally do something with the response
-            window.location.href="profile.html";
+            // window.location.href="profile.html";
+            location.reload();
+
         },
         error: function(xhr, status, error) {
             // Handle error
@@ -67,44 +69,50 @@ $(document).ready(function() {
         sendData(); // Call the sendData function
     });
 }); 
+
 function checkUsernameInMongoDB() {
-    // Retrieve username from local storage
-    const username = localStorage.getItem('username');
+    
+  // Retrieve username from local storage
+  const username = localStorage.getItem('username');
 
-    // Check if username is present
-    if (username) {
-        // Send AJAX request to PHP script
-        $.ajax({
-            url: '/PHP-MYSQL-MONGODB-REDIUS-BOOTSTRAP-AJAX-WEBSITE/php/profile.php',
-            type: 'GET',
-            data: { username: username },
-            success: function(response) {
-                // Parse response JSON
-                var responseData = JSON.parse(response);
-
-                // Handle response
-                if (responseData.exists) {
-                    var data = responseData.data;
-                    $('#name').text('Name: ' + data.name);
-                    $('#bio').text('Bio: ' + data.bio);
-                    $('#contactInfo').html('Phone: ' + data.phone + '<br>Email: ' + data.email);
-                    $('#personalDetails').html('DOB: ' + data.dob + '<br>Address: ' + data.address);
-                    $('#interests').text('Interests: ' + data.interests);
-                    $('#education').text('Education: ' + data.education);
-                    $('#skills').text('Skills: ' + data.skills);
-                    $('#experiences').text('Experiences: ' + data.experiences);
-                    $('#projects').text('Projects: ' + data.projects);
-                } else {
-                    console.log('Username does not exist in MongoDB.');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', status, error);
-            }
-        });
-    } else {
-        alert("Kindly update user profile");
-    }
+  // Check if username is present
+  if (username) {
+      // Send AJAX request to PHP script
+      $.ajax({
+          url: '/PHP-MYSQL-MONGODB-REDIUS-BOOTSTRAP-AJAX-WEBSITE/php/profile.php',
+          type: 'GET',
+          contentType: 'application/x-www-form-urlencoded',
+          data: { username: username },
+          success: function(response) {
+              // Parse response JSON
+              var responseData = JSON.parse(response);
+              console.log(responseData.usedredis);
+              // Handle response
+              if (responseData.exists) {
+                var data = responseData.data;
+                $('#name').text('Name: ' + data.name);
+                $('#bio').text('Bio: ' + data.bio);
+                $('#contactInfo').html('Phone: ' + data.phone + '<br>Email: ' + data.email);
+                $('#personalDetails').html('DOB: ' + data.dob + '<br>Address: ' + data.address);
+                $('#interests').text('Interests: ' + data.interests);
+                $('#education').text('Education: ' + data.education);
+                $('#skills').text('Skills: ' + data.skills);
+                $('#experiences').text('Experiences: ' + data.experiences);
+                $('#projects').text('Projects: ' + data.projects);
+                  // Username exists, you can perform further actions here
+              } else {
+                  console.log('Username does not exist in MongoDB.');
+                  // Username doesn't exist, handle accordingly
+              }
+          },
+          error: function(xhr, status, error) {
+              console.error('Error:', status, error);
+          }
+      });
+  } else {
+      alert("Kindly update user profile");
+  }
 }
+
 
 checkUsernameInMongoDB();
