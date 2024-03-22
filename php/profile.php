@@ -8,7 +8,7 @@ use MongoDB\Client;
 use Predis\Client as RedisClient;
 
 // Connect to MongoDB
-$client = new Client("mongodb+srv://Dhanush:NqqgN1WYSJrqr0e2@cluster0.2s94ek1.mongodb.net/");
+$client = new Client("mongodb+srv://<username>:<password>@cluster0/");
 $collection = $client->selectDatabase('user-login-data')->selectCollection('profiles');
 
 // Connect to Redis server
